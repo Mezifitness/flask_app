@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 # Load environment variables from a .env file if present. This allows the
 # application to retrieve email credentials and other configuration values
 # without requiring them to be set in the system environment.
-load_dotenv()
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '..', '.env'))
 
 db = SQLAlchemy()
 login_manager = LoginManager()
